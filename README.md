@@ -4,7 +4,6 @@
 Deadline för inlämning: Måndag den 26:e Oktober kl 23:59
 Inlämning sker via GitHub Classroom.
 
----
 ### För G krävs följande i inlämningen:
 
 1. Du har planerat din lösning på ett lämpligt sätt. Bifoga exempelvis pseudokod/klassdiagram.
@@ -20,15 +19,12 @@ Inlämning sker via GitHub Classroom.
 7. Din struktur skapar förutsättningar för effektivt underhåll och möjlighet till vidareutveckling. Detta innefattar prydlig och konsekvent kod.
 8. Analysera och reflektera kring hur du uppfyllt kraven i uppgiften. Reflektera över din applikations funktion och kodstruktur - samt motivera dina ställningstaganden.
 
----
-
 ## Uppgiftsbeskrivning:
 
 Som programmerare har du blivit kontaktad av ett bibliotek som vill att du gör ett ideellt arbete åt dem. Självklart tackar du ja!
 
 Biblioteket skall starta ett pilotprojekt och införa digital hantering av deras böcker! Som första steg skall du ska skapa ett grundläggande konsolprogram som innehåller funktioner för att registrera nya böcker samt söka i biblioteket bland dessa böcker.
 
----
 ## Funktionskrav
 
 * Lösningen ska innehålla klassen _Book_ med minst tre egenskaper: titel, skribent och utgivningsår. 
