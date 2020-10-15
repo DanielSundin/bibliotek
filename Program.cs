@@ -6,7 +6,7 @@ namespace Biblioteket
     {
         static void Main()
         {
-            Console.WriteLine("Hello Biblioteket!");
+            Console.WriteLine("Hello Biblioteket!!");
         }
     }
 }
