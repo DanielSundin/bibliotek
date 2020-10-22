@@ -3,8 +3,17 @@ namespace Biblioteket
 {
     class Anthology : Book
     {
-        //override author som publisher typ
-        //här kan man lägga in en lista (string) med authors
+           
+        public string Publisher      
+        {           //byter namn på variabeln author till publisher
+            get {return this.Author;}
+            set {this.Author = value;}
+        }
+
+        public Anthology(string title, int publicationyear, string publisher) : base(title, publicationyear, publisher)
+        {
+        }
+
         
     }
 }

@@ -59,3 +59,5 @@ Biblioteket skall starta ett pilotprojekt och införa digital hantering av deras
 * **Kom ihåg, mer kod betyder inte bättre kod! Hellre eleganta lösningar än mycket extra funktionalitet utöver kravspecen!**
 
 Lycka till!
+
+privat lista med böcker, tvingar att gå genom metoder o konstruktorer
