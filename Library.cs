@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Biblioteket
 {
 public class Library
 {
     private List <Book> booksinLibrary = new List<Book>();
-     
+    public List<Book> sampleList = new List<Book>();
 
     public void AddBook(string title, int publicationyear, string author)
     {
@@ -15,18 +16,14 @@ public class Library
         book.Author = author;
         booksinLibrary.Add(book);
     }
-    public void AddListofBooks()
-    {
+    public void AddListofBooks(List<Book> input)
+    {           
+        booksinLibrary=booksinLibrary.Union(input).ToList();
+    }  //denna metod använder union för att inkludera en input sträng av böcker i booksinLibrary, samt undvika dubletter
 
-    }
-
-    public void PrintLibraryContents()
+    public List<Book> PrintLibraryContents()
     {
-        foreach (Book b in booksinLibrary)
-        {
-            System.Console.WriteLine($"{b.Title}, av {b.Author}. Utgiven {b.Publicationyear}" );
-            //System.Console.WriteLine($"[{booksinLibrary.IndexOf(b)}]: {b.Title}");
-        }    //returnera detta istället för att skriva
+        return booksinLibrary;
     }
 
     public static void SearchLibrary()
@@ -39,9 +36,14 @@ public class Library
         AddBook("A Game of Thrones", 1996, "George R. R. Martin");
         AddBook("The Hydrogen Sonata", 2012, "Ian M. Banks");
         AddBook("Frankenstein", 2002, "Mary Shelley");
-        AddBook("Three Moments of an Explosion", 2015, "China Mieville");
-        AddBook("c/o HOPS", 2020, "Me and my magazines");
+        
+        
+        Book book3 = new Book( "Three Moments of an Explosion", 2015, "China Mieville");
+        Book book4 = new Book("c/o HOPS", 2020, "Me and my magazines");
+        sampleList.Add(book3);
+        sampleList.Add(book4);
         //gör sedan detta till underklasser
+        
     }
 }
 }
