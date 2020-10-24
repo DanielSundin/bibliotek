@@ -11,15 +11,17 @@ namespace Biblioteket
 
             Library library = new Library();
 
-            library.LoadSampleLibrary();
+            library.LoadSampleLibrary();             
             library.AddListofBooks(library.sampleList);
-
+           
+            Console.Clear();
+           
             List<Book> librarycontents = library.PrintLibraryContents();
+
             foreach (Book b in librarycontents)
-                {                    
-                    Console.WriteLine($"{b.Title}, av {b.Author}. Utgiven {b.Publicationyear}");
-                    //System.Console.WriteLine($"[{booksinLibrary.IndexOf(b)}]: {b.Title}");
-                }   //returnera detta istället för att skriva
+            {
+                Console.WriteLine(b);
+            }   //varje klass har overload av ToString för att få olika resultat
 
         }
     }

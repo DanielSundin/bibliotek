@@ -14,5 +14,10 @@ namespace Biblioteket
             Author = author;
         }
 
+        
+        public override string ToString()
+        {
+            return Title + " av " + Author + " från " + Publicationyear;
+        }
     }
 }
