@@ -7,7 +7,10 @@ namespace Biblioteket
     {
         static void Main()
         {
+            Console.Clear();
             Console.WriteLine("Hej och välkommen till Biblioteket!");
+            Console.WriteLine("Tryck enter!");
+            Console.ReadKey();
             PrintMenu();
         }
         public static void PrintMenu()
@@ -18,10 +21,11 @@ namespace Biblioteket
 
             while (true)
             {
+                Console.Clear();
                 Console.WriteLine("Det finns 3 olika alternativ:");
                 Console.WriteLine(" A: Skriv ut en lista över bibliotekets alla böcker.");
                 Console.WriteLine(" B: Lägg till en bok.");
-                Console.WriteLine(" C: Sök i biblioteket efter en särskilt titel.");
+                Console.WriteLine(" C: Sök i biblioteket efter en särskild titel.");
                 Console.WriteLine("Skriv nu ditt val eller Q för att avsluta.");
 
                 string input = Console.ReadLine().ToUpper();
@@ -39,6 +43,7 @@ namespace Biblioteket
                             {
                                 Console.WriteLine(b);
                             }   //varje klass har overload av ToString för att få olika resultat
+                           
                             Console.ReadKey();
                             Console.Clear();
                             break;
@@ -97,7 +102,39 @@ namespace Biblioteket
                         }
                     case "C":
                         {
-                            Library.SearchLibrary();
+                            Console.Clear();
+                            Console.WriteLine("Skriv in en boktitel att söka efter (Det går även att söka på författare eller utgivningsår):\n");
+                            string search = Console.ReadLine().ToLower();
+                            
+                            List<Book> librarycontents = library.PrintLibraryContents();
+                           
+                           if (library.SearchLibrary(search)==true)
+                            {
+                                System.Console.WriteLine("Sökningen gav dessa träffar: ");
+                               
+                                foreach (Book b in library.searchResults) 
+                                    {
+                                        {
+                                        Console.WriteLine(b);
+                                        }
+                                    }
+                                library.searchResults.Clear();
+                                Console.ReadKey();
+                            }
+                            else
+                            {
+                                System.Console.WriteLine("Tyvärr ingen träff");
+                                Console.ReadKey();
+                            }
+
+                         //   Console.WriteLine(value: library.SearchLibrary(search));
+                          
+                         //    foreach (Book b in librarycontents)
+                          //  {
+                                //Console.WriteLine(b.Title);
+                           
+                        //    }
+
                             break;
                         }
 
