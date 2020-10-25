@@ -6,15 +6,12 @@ namespace Biblioteket
         public int Publicationyear { get; set; }
         public string Author { get; set; }
 
-       // public Book() { }       //do I need this?
         public Book(string title, int publicationyear, string author)
         {
             Title = title;
             Publicationyear = publicationyear;
             Author = author;
         }
-
-        
         public override string ToString()
         {
             return Title + " av " + Author + " från " + Publicationyear;

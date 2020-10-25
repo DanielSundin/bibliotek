@@ -6,7 +6,7 @@ namespace Biblioteket
 public class Library
 {
     private List <Book> booksinLibrary = new List<Book>();
-    public List<Book> sampleList = new List<Book>();
+    public List<Book> sampleList= new List<Book>();
 
     public void AddBook(string title, int publicationyear, string author)
     {
@@ -42,7 +42,8 @@ public class Library
         Book book4 = new Novel("Frankenstein", 2002, "Mary Shelley", "skräck");
         sampleList.Add(book3);
         sampleList.Add(book4);
-                
+        
+        
     }
         public void AddBook(string title, int publicationyear, string author, string genre)
     {

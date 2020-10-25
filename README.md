@@ -61,3 +61,10 @@ Biblioteket skall starta ett pilotprojekt och införa digital hantering av deras
 Lycka till!
 
 privat lista med böcker, tvingar att gå genom metoder o konstruktorer
+
+todo
+
+menu
+sök sträng
+felsäkra
+dokumentera
