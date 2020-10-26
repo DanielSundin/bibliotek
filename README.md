@@ -1,70 +1,45 @@
 # Inlämningsuppgift - Biblioteket
-## Läs igen hela denna uppdragsbeskrivning noggrant.
+Elev: Daniel Sundin, SUV.NET2020
 
-Deadline för inlämning: Måndag den 26:e Oktober kl 23:59
-Inlämning sker via GitHub Classroom.
+## Uppgiftsbeskrivning
 
-### För G krävs följande i inlämningen:
+Uppgiften var att skapa ett C#-program som skulle simulera ett filhanteringssystem i ett bibliotek, med möjlighet att lägga till, skriva ut och söka bland bibliotekets böcker. Nedan följer vilka funktionskrav som programmet uppfyller.
 
-1. Du har planerat din lösning på ett lämpligt sätt. Bifoga exempelvis pseudokod/klassdiagram.
-2. Du har skapat en körbar konsolapplikation i C# ( lösningen kommer att testas i Visual Studio Code. )
-3. Du har enskilt planerat och skapat en enkel men välstrukturerad applikation med hjälp av språket C#.
-4. Du har skrivit en rapport för uppgiften som sammanfattar din lösning och tillvägagångssätt samt värderar hur bra du själv tycker att du lyckats med uppgiften. Rapporten skall vara skriven i denna Readme.md-fil (All denna text är ok att ta bort). _Ha med en lista på vilka funktionskrav du anser att ditt program uppfyller!_
-5. Minst 9 av 13 funktionskrav måste vara uppfyllda.
 
----
-### För VG krävs också följande i inlämningen:
 
-6. 12 av 13 funktionskrav måste vara uppfyllda.
-7. Din struktur skapar förutsättningar för effektivt underhåll och möjlighet till vidareutveckling. Detta innefattar prydlig och konsekvent kod.
-8. Analysera och reflektera kring hur du uppfyllt kraven i uppgiften. Reflektera över din applikations funktion och kodstruktur - samt motivera dina ställningstaganden.
-
-## Uppgiftsbeskrivning:
-
-Som programmerare har du blivit kontaktad av ett bibliotek som vill att du gör ett ideellt arbete åt dem. Självklart tackar du ja!
-
-Biblioteket skall starta ett pilotprojekt och införa digital hantering av deras böcker! Som första steg skall du ska skapa ett grundläggande konsolprogram som innehåller funktioner för att registrera nya böcker samt söka i biblioteket bland dessa böcker.
 
 ## Funktionskrav
+1. Programmet innehåller en klass _Book_. Den har tre egenskaper: titel, författare och utgivningsår. (Book.cs rad 5)
+2. Det finns tre underklasser: roman, tidsskrift och antologi.
+(Anthology.cs, Novel.cs, Periodical.cs)
+3. Programmet innehåller en klass vid namn _Library_ som innehåller en privat lista med _Book_-er. (Library.cs rad 8)
+4. _Library_-klassen innehåller en publik metod för att lägga till ett bokobjekt. (Library.cs rad 11. Overload för underklasser rad 62, 71, 80)
+5. _Library_-klassen innehåller en publik metod för att lägga till en lista av bokobjekt. (Library.cs rad 19)
+6. _Library_-klassen innehåller en publik metod för att skriva ut alla bibliotekets bokobjekt. (Library.cs rad 25)
+7. _Library_-klassen innehåller en publik metod för att söka i samlingen efter given indata. (Library.cs rad 30)
+8. Varje underklass innehåller en separat _ToString_override. (Book.cs rad 15, Anthology.cs rad 18, Novel.cs rad 14, Periodical.cs rad 17)
+9. Genom en konsolmeny kan användaren lägga till nya böcker.v (Program.cs rad 51)
+10. Genom en konsolmeny kan användaren skriva ut alla böcker i samlingen. (Program.cs rad 35)
+11. Genom en konsolmeny kan användaren söka efter en boktitel. Det går att söka på titel, författare eller utgivningsår (och även på attribut från underklasserna). Sökmetoden ser ingen skillnad på versaler och gemener. (Program.cs rad 113)
+12. När användaren skapar ett objekt är den av klassen _Book_. (Program.cs rad 87)
+13. Programmet innehåller en färdigkonfigurerad lista med 5 olika böcker, från alla underklasser. (Library.cs rad 9)
 
-* Lösningen ska innehålla klassen _Book_ med minst tre egenskaper: titel, skribent och utgivningsår. 
-* _Book-klassen_ ska ärvas av minst tre underklasser av böcker. Förslagsvis _Roman_, _Tidskrift_ och _Novellsamling_. 
-* Lösningen ska innehålla en klass kallad Library (bibliotek), som ska innehålla en lista med böcker. Listan måste vara private och andra klasser kan bara integrera med listan med hjälp av metoder. 
-* Bibliotek-klassen ska ha minst fyra publika metoder:
-  * En för att lägga till en bok i listan 
-  * En för att lägga till flera böcker samtidigt (en lista med böcker) 
-  * En för av skriva ut alla böcker i biblioteket. 
-  * En för att söka bland böckerna i bokhyllan med en given sträng (indata) 
-* Varje underklass till Book: tidskrift, roman, novellsamling; ska ha en egen override av ToString metod som ska användas när alla böcker i biblioteket listas. Den metoden ska ge tillbaka olika strängar beroende på vilken klass det är. 
-* Användaren ska genom en konsolmeny kunna:
-  * Lägga till nya böcker i biblioteket
-  * Lista alla böcker i biblioteket 
-  * Söka efter en bok med ett givet namn. Boken ska matcha om det man söker efter finns någonstans i bokens titel, författarens namn eller i utgivningsåret och ska inte vara känsligt för stora eller små bokstäver.
-* Varje bok som användaren sparar i Biblioteket ska vara ett eget objekt av typen Book.
-* När programmet startar ska en färdigkonfiguerad lista av minst 5 böcker av olika typer från början finnas i biblioteket.
 
 ---
 
-### Tips och riktlinjer:
+## Diskussion
 
-* Inlämning av uppgiften sker via GitHub Classroom. Har du problem med att få det att fungera, se till att få hjälp med det i god tid! 
-* Ni ska dokumentera er lösning (mål 4) i denna Readme.md fil som finns i repot. Ta gärna bort alla denna text och ersätt med din rapport.
-* När ni skriver er rapport (mål 4), beskriv vad fördelarna är med er struktur. Vad är den ev. problematiken om programmet skulle växa och utökas.
-* Mål 1 kommer bedömas utifrån er rapport jämte ert kodresultat. Dokumentera med fördel med hjälp av ev. flöde- & klassdiagram eller hur ni från er synvinkel förstått uppgiften.
-* All form av koddelning är otillåten och innebär automatiskt U i betyg. Använder ni en färdig lösning från exempelvis Stack Overflow måste ni dokumentera- samt motivera detta i kodkommmentarer.
-* Se till att ditt program kan hantera felaktig inmatning och inte kraschar.
-* För en bra struktur, tänk på att separera "inmatningen av information" från "bibliotek- och bok-klasserna". Dom ska alltså inte använda sig av Console någonstans.
-* För att veta hur sökning går till behöver ni ev. slå upp och hitta information på nätet. Om ni inte klarar av detta steg så är det viktigaste att ni dokumenterar och reflekterar kring detta i er rapport.
-* Deadline kollas mot det senaste comitten, så se till att pusha ditt lokala repository innan ** Måndag den 26:e Oktober kl 23:59 **
-* **Kom ihåg, mer kod betyder inte bättre kod! Hellre eleganta lösningar än mycket extra funktionalitet utöver kravspecen!**
+Programmet innehåller, förutom library-klassen, en basklass (book) och tre underklasser. Underklasserna har lite extra attribut, separata konstruktorer och egna ToString Overrides. Eftersom de har egna konstruktorer har jag också gjort _overload_ metoder för att skapa objekt av varje underklass. I fall att man skulle vilja utöka programmet, kan dessa användas om en användare vill skapa objekt av en underklass istället för av en Book-klass. 
 
-Lycka till!
+Vill man undvika att det finns "odefinierade" Book-objekt så kan man göra klassen Book abstrakt. Då är man tvungen att göra ett specifierat objekt, vilket kan vara önskvärt.
 
-privat lista med böcker, tvingar att gå genom metoder o konstruktorer
+Funktionen för att lägga till en lista av böcker använder sig av metoden .Union som lägger ihop två listor utan att lägga till dubletter.
 
-todo
+Konsolmenyn skulle kunna brytas ut i en separat klass. Jag gjorde så till en start, men det då blev Program.cs en klass som bara innehöll 2 anrop till andra klasser. Konsolmenyn hade sett bättre ut av att delas upp i separata funktioner istället för nästlade if-satser. Jag har valt att inte försöka mig på det.
 
-menu
-sök sträng
-felsäkra
-dokumentera
+ Sökfunktionen letar genom all data attriberad objekten. Sökningen görs med funktionen .Contains som returnerar sant/falskt. Metoden jämför en sökvariabel i strängformat mot sträng-konverterade värden i bibliotekets boklista. Det gör att man kan få en träff på siffervärden också, t ex kan en sökning på 1984 returnera både Orwells roman och en bok som publicerats det årtalet.
+ En loop söker genom listan över bibliotekets alla böcker och lägger till de resultat som returnerar _true_ i en annan lista vid namn Library.searchResults. Denna lista returneras till konsolmenyn och loopas igenom för att skriva ut de träffar som sökningen resulterat i. 
+
+ Vad gäller säkring av felaktig inmatning är den största delen av indata i strängformat. Jag har lagt till en try catch där användaren ska definiera en int-variabel (Program.cs rad 67). MEd det sagt är det nog inga större bekymmer att krascha programmet om man så skulle vilja.
+
+ 

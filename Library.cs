@@ -32,11 +32,10 @@ namespace Biblioteket
             List<Book> searchlist = PrintLibraryContents();
 
             foreach (Book b in searchlist)
-            {                //begränsa ev sökningen med b.Title
+            {                //begränsa ev sökningen med b.Title, om man ska dela upp sökningen i flera separata funktioner
                 if (b.ToString().ToLower().Contains(search))
                 {
-                    searchResults.Add(b);     //underligt nog hittar den inte Frankenstein om jag bara skriver "f", men däremot "fra"
-                    
+                    searchResults.Add(b);                         
                 }
                 
             }
@@ -53,7 +52,7 @@ namespace Biblioteket
             AddBook("The Hydrogen Sonata", 2012, "Ian M. Banks", "scifi");
             AddBook("c/o HOPS", 2020, "Me and my magazines", 50, 10);
 
-            Book book3 = new Novel("A Game of Thrones", 1996, "George R. R. Martin", "fantasy");
+            Book book3 = new Novel("1984", 1973, "George Orwell", "dystopi");
             Book book4 = new Novel("Frankenstein", 2002, "Mary Shelley", "skräck");
             sampleList.Add(book3);
             sampleList.Add(book4);

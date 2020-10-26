@@ -43,7 +43,7 @@ namespace Biblioteket
                             {
                                 Console.WriteLine(b);
                             }   //varje klass har overload av ToString för att få olika resultat
-                           
+
                             Console.ReadKey();
                             Console.Clear();
                             break;
@@ -52,7 +52,7 @@ namespace Biblioteket
                         {
                             Book userbook = new Book("", 0, "");                //sätter lite defaultvärden på hypotetiska objekt
                             //Novel usernovel = new Novel("",0,"","");
-                            //Anthology useranthology = new Anthology("",0,"",1);
+                            //Anthology useranthology = new Anthology("",0,"",1);  //i en utökning kan man lägga till fler funktioner för att skapa mer avancerade objekt
                             //Periodical userperiodical = new Periodical("", 0, "", 0, 0);
 
                             Console.Clear();
@@ -65,7 +65,17 @@ namespace Biblioteket
                             Console.WriteLine("Fyll i bokens FÖRFATTARE: ");
                             userbook.Author = Console.ReadLine();
                             Console.WriteLine("Fyll i bokens UTGIVNINGSÅR: ");
-                            userbook.Publicationyear = Convert.ToInt32(Console.ReadLine());   //FELHANTERING IFSATS
+
+                            try
+                            {
+                                userbook.Publicationyear = Convert.ToInt32(Console.ReadLine());
+                            }
+                            catch
+                            {
+                                Console.WriteLine("Var god fyll i ett utgivningsår, med heltal. Var god försök igen.");
+                                Console.ReadKey();
+                                break;
+                            }
 
                             Console.Clear();
                             Console.WriteLine("Du har fyllt i följande information:\n");
@@ -86,11 +96,11 @@ namespace Biblioteket
                                 Console.Clear();
                                 continue;
                             }
-                            // else if (choice == "y")         //Undermeny för att skapa mer avancerade objekt
-                            // {
+                            // else if (choice == "y")         //Plats för undermeny för att skapa mer avancerade objekt
+                            // {                             
 
                             // }
-                           
+
                             else
                             {
                                 Console.WriteLine("Något har gått fel. Du tas nu tillbaka till huvudmenyn.");
@@ -105,19 +115,19 @@ namespace Biblioteket
                             Console.Clear();
                             Console.WriteLine("Skriv in en boktitel att söka efter (Det går även att söka på författare eller utgivningsår):\n");
                             string search = Console.ReadLine().ToLower();
-                            
+
                             List<Book> librarycontents = library.PrintLibraryContents();
-                           
-                           if (library.SearchLibrary(search)==true)
+
+                            if (library.SearchLibrary(search) == true)
                             {
                                 System.Console.WriteLine("Sökningen gav dessa träffar: ");
-                               
-                                foreach (Book b in library.searchResults) 
+
+                                foreach (Book b in library.searchResults)
+                                {
                                     {
-                                        {
                                         Console.WriteLine(b);
-                                        }
                                     }
+                                }
                                 library.searchResults.Clear();
                                 Console.ReadKey();
                             }
@@ -126,14 +136,6 @@ namespace Biblioteket
                                 System.Console.WriteLine("Tyvärr ingen träff");
                                 Console.ReadKey();
                             }
-
-                         //   Console.WriteLine(value: library.SearchLibrary(search));
-                          
-                         //    foreach (Book b in librarycontents)
-                          //  {
-                                //Console.WriteLine(b.Title);
-                           
-                        //    }
 
                             break;
                         }
@@ -156,5 +158,5 @@ namespace Biblioteket
         }
     }
 
-    
+
 }

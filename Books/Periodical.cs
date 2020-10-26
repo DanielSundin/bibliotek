@@ -8,7 +8,6 @@ namespace Biblioteket
         public int Month
         {get; set;}       
 
-
         public Periodical(string title, int publicationyear, string author, int number, int month) : base(title, publicationyear, author)
         {
             Number = number;

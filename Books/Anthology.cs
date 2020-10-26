@@ -9,7 +9,7 @@ namespace Biblioteket
         {                            
             get {return this.Author;}
             set {this.Author = value;}
-        }  // byter namn på variabeln author till compiler
+        }  // byter namn på variabeln author till compiler (sammanställare)
 
         public Anthology(string title, int publicationyear, string compiler, int authorCount) : base(title, publicationyear, compiler)
         {
