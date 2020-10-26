@@ -31,15 +31,19 @@ Uppgiften var att skapa ett C#-program som skulle simulera ett filhanteringssyst
 
 Programmet innehåller, förutom library-klassen, en basklass (book) och tre underklasser. Underklasserna har lite extra attribut, separata konstruktorer och egna ToString Overrides. Eftersom de har egna konstruktorer har jag också gjort _overload_ metoder för att skapa objekt av varje underklass. I fall att man skulle vilja utöka programmet, kan dessa användas om en användare vill skapa objekt av en underklass istället för av en Book-klass. 
 
+Jag har laddat upp ett klassdiagram på github vid namn Library.jpeg.
+
 Vill man undvika att det finns "odefinierade" Book-objekt så kan man göra klassen Book abstrakt. Då är man tvungen att göra ett specifierat objekt, vilket kan vara önskvärt.
 
-Funktionen för att lägga till en lista av böcker använder sig av metoden .Union som lägger ihop två listor utan att lägga till dubletter.
+Funktionen för att lägga till en lista av böcker använder sig av metoden .Union som lägger ihop två listor utan att lägga till dubletter. Det hade varit bra att spara bibliotekets samling (listan över alla böcker) i en extern fil. Det skulle kunna fungera så att skapad data laddas upp med en funktion och även att en uppdaterad lista laddas ner vid programmets uppstart.
 
-Konsolmenyn skulle kunna brytas ut i en separat klass. Jag gjorde så till en start, men det då blev Program.cs en klass som bara innehöll 2 anrop till andra klasser. Konsolmenyn hade sett bättre ut av att delas upp i separata funktioner istället för nästlade if-satser. Jag har valt att inte försöka mig på det.
+Konsolmenyn skulle kunna brytas ut i en separat klass. Jag gjorde så till en start, men det då blev Program.cs en klass som bara innehöll 2 anrop till andra klasser. Konsolmenyn hade sett bättre ut av att delas upp i separata funktioner istället för nästlade if-satser. Jag har valt att inte försöka mig på det,dels då det är tidskrävande och även för att det inte var en del av uppgiftsbeskrivningen.
 
- Sökfunktionen letar genom all data attriberad objekten. Sökningen görs med funktionen .Contains som returnerar sant/falskt. Metoden jämför en sökvariabel i strängformat mot sträng-konverterade värden i bibliotekets boklista. Det gör att man kan få en träff på siffervärden också, t ex kan en sökning på 1984 returnera både Orwells roman och en bok som publicerats det årtalet.
+ Sökfunktionen letar genom all data attribuerad objekten. Sökningen görs med funktionen .Contains som returnerar sant/falskt. Metoden jämför en sökvariabel i strängformat mot sträng-konverterade värden i bibliotekets boklista. Det gör att man kan få en träff på siffervärden också, t ex kan en sökning på "1984" returnera både Orwells roman och en bok som publicerats det årtalet. Jag konverterar alla strängar till .ToLower för att undvika skiftlägeskänslighet.
  En loop söker genom listan över bibliotekets alla böcker och lägger till de resultat som returnerar _true_ i en annan lista vid namn Library.searchResults. Denna lista returneras till konsolmenyn och loopas igenom för att skriva ut de träffar som sökningen resulterat i. 
 
- Vad gäller säkring av felaktig inmatning är den största delen av indata i strängformat. Jag har lagt till en try catch där användaren ska definiera en int-variabel (Program.cs rad 67). MEd det sagt är det nog inga större bekymmer att krascha programmet om man så skulle vilja.
+ Vad gäller säkring av felaktig inmatning är den största delen av indata i strängformat. Jag har lagt till en try catch där användaren ska definiera en int-variabel (Program.cs rad 67). Med det sagt är det nog inga större bekymmer att krascha programmet om man så skulle vilja.
 
- 
+Trevlig rättning
+/Daniel
+
