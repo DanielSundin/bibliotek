@@ -5,9 +5,6 @@ Elev: Daniel Sundin, SUV.NET2020
 
 Uppgiften var att skapa ett C#-program som skulle simulera ett filhanteringssystem i ett bibliotek, med möjlighet att lägga till, skriva ut och söka bland bibliotekets böcker. Nedan följer vilka funktionskrav som programmet uppfyller.
 
-
-
-
 ## Funktionskrav
 1. Programmet innehåller en klass _Book_. Den har tre egenskaper: titel, författare och utgivningsår. (Book.cs rad 5)
 2. Det finns tre underklasser: roman, tidsskrift och antologi.
